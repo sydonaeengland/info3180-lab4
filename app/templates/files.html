@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block main %}
+<h1 class="text-center">Uploaded Images</h1>
+
+{% if images %}
+<div class="files">
+  {% for image in images %}
+  <div class="image-container">
+    <img src="{{ url_for('get_image', filename=image) }}" alt="{{ image }}" />
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<p class="text-center">No images uploaded yet.</p>
+{% endif %} {% endblock %}

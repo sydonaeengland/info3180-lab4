@@ -1,20 +1,51 @@
 body {
-    padding-top: 5rem;
+  padding-top: 5rem;
 }
 
 .form-login {
-    max-width: 330px;
-    padding: 15px;
+  max-width: 330px;
+  padding: 15px;
 }
 
 .form-login input[type="text"] {
-    margin-bottom: -1px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .form-login input[type="password"] {
-    margin-bottom: 10px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.files {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+  row-gap: 20px;
+  width: 90%;
+  column-gap: 1px;
+  padding: 10px;
+  justify-content: center;
+  margin: auto;
+}
+
+.image-container {
+  width: 100%;
+  max-width: 300px;
+  height: 250px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  margin: 0;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
 }

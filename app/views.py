@@ -7,7 +7,8 @@ from werkzeug.security import check_password_hash
 from app.models import UserProfile
 from app.forms import LoginForm
 from app.forms import UploadForm
-
+from app.get_uploaded import get_uploaded_images 
+from flask import send_from_directory
 ###
 # Routing for your application.
 ###
@@ -66,6 +67,16 @@ def login():
             flash("Invalid username or password. Please try again.", "danger")
         return redirect(url_for("home"))  
     return render_template("login.html", form=form)
+
+@app.route('/uploads/<filename>')
+def get_image(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+
+@app.route('/files')
+@login_required
+def files():
+    images = get_uploaded_images()  
+    return render_template("files.html", images=images)
 
 # user_loader callback. This callback is used to reload the user object from
 # the user ID stored in the session
